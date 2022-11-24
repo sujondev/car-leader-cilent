@@ -1,0 +1,68 @@
+[
+    {
+        "_id": 1,
+        "name": "2016 Hunday Elentra",
+        "img": "https://i.ibb.co/Q63GQzh/car1.jpg",
+        "location": "Dhaka,Mirpur",
+        "orginalPrice": "600",
+        "resellPrice": "400",
+        "yearofusing": "6",
+        "conditon:": "good",
+        "description": "The Mercedes-Benz C-Class is a line of compact executive cars produced by Daimler AG. Introduced in 1993 as a replacement for the 190 (W201) range, the C-Class was the smallest model in the marque's line-up until the A-Class arrived in 1997. The C-Class is built at Mercedes-Benz factories in Sindelfingen and Bremen, Germany as well as numerous satellite factories in other countries. The first C-Class (W202) sedan was produced on 1 June 1993, and the first of the second generation (W203) rolled off the assembly line on 18 July 2000."
+    },
+    {
+        "_id": 2,
+        "name": "2018 Lehus LX 570",
+        "img": "https://i.ibb.co/gygqf9S/car2.jpg",
+        "location": "chitagong,Feni",
+        "orginalPrice": "1000",
+        "resellPrice": "700",
+        "yearofusing": "9",
+        "conditon:": "good",
+        "description": "The Mercedes-Benz C-Class is a line of compact executive cars produced by Daimler AG. Introduced in 1993 as a replacement for the 190 (W201) range, the C-Class was the smallest model in the marque's line-up until the A-Class arrived in 1997. The C-Class is built at Mercedes-Benz factories in Sindelfingen and Bremen, Germany as well as numerous satellite factories in other countries. The first C-Class (W202) sedan was produced on 1 June 1993, and the first of the second generation (W203) rolled off the assembly line on 18 July 2000."
+    },
+    {
+        "_id": 3,
+        "name": "2018 Volve XC60",
+        "img": "https://i.ibb.co/n0vKQsZ/car3.jpg",
+        "location": "Dhaka,Gulshan",
+        "orginalPrice": "800",
+        "resellPrice": "500",
+        "yearofusing": "10",
+        "conditon:": "good",
+        "description": "The Mercedes-Benz C-Class is a line of compact executive cars produced by Daimler AG. Introduced in 1993 as a replacement for the 190 (W201) range, the C-Class was the smallest model in the marque's line-up until the A-Class arrived in 1997. The C-Class is built at Mercedes-Benz factories in Sindelfingen and Bremen, Germany as well as numerous satellite factories in other countries. The first C-Class (W202) sedan was produced on 1 June 1993, and the first of the second generation (W203) rolled off the assembly line on 18 July 2000."
+    },
+    {
+        "_id": 4,
+        "name": "2009 Sebaru Imperza",
+        "img": "https://i.ibb.co/QNXCK50/car4.jpg",
+        "location": "Dhaka,Gazipur",
+        "orginalPrice": "1200",
+        "resellPrice": "700",
+        "yearofusing": "3",
+        "conditon:": "good",
+        "description": "The Mercedes-Benz C-Class is a line of compact executive cars produced by Daimler AG. Introduced in 1993 as a replacement for the 190 (W201) range, the C-Class was the smallest model in the marque's line-up until the A-Class arrived in 1997. The C-Class is built at Mercedes-Benz factories in Sindelfingen and Bremen, Germany as well as numerous satellite factories in other countries. The first C-Class (W202) sedan was produced on 1 June 1993, and the first of the second generation (W203) rolled off the assembly line on 18 July 2000."
+    },
+    {
+        "_id": 5,
+        "name": "2017 Nesen Altema",
+        "img": "https://i.ibb.co/8Nk1bkV/car5.jpg",
+        "location": "Dhaka,Mirpur",
+        "orginalPrice": "12000",
+        "resellPrice": "7000",
+        "yearofusing": "5",
+        "conditon:": "good",
+        "description": "The Mercedes-Benz C-Class is a line of compact executive cars produced by Daimler AG. Introduced in 1993 as a replacement for the 190 (W201) range, the C-Class was the smallest model in the marque's line-up until the A-Class arrived in 1997. The C-Class is built at Mercedes-Benz factories in Sindelfingen and Bremen, Germany as well as numerous satellite factories in other countries. The first C-Class (W202) sedan was produced on 1 June 1993, and the first of the second generation (W203) rolled off the assembly line on 18 July 2000."
+    },
+    {
+        "_id": 6,
+        "name": "2013 Henda Cevic",
+        "img": "https://i.ibb.co/gygqf9S/car2.jpg",
+        "location": "chitagong,Noakahli",
+        "orginalPrice": "1500",
+        "resellPrice": "1000",
+        "yearofusing": "3",
+        "conditon:": "good",
+        "description": "The Mercedes-Benz C-Class is a line of compact executive cars produced by Daimler AG. Introduced in 1993 as a replacement for the 190 (W201) range, the C-Class was the smallest model in the marque's line-up until the A-Class arrived in 1997. The C-Class is built at Mercedes-Benz factories in Sindelfingen and Bremen, Germany as well as numerous satellite factories in other countries. The first C-Class (W202) sedan was produced on 1 June 1993, and the first of the second generation (W203) rolled off the assembly line on 18 July 2000."
+    }
+]
