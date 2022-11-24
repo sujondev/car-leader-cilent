@@ -1,6 +1,5 @@
 import React from 'react';
 import bgimg1 from '../../../assets/img/bg1.jpg';
-import carReportIcon from '../../../assets/icon/car-report-icon.svg';
 import './CarBuyOpportunity.css'
 import { FaCar, FaAward, FaCarSide } from "react-icons/fa";
 import { HiTag } from "react-icons/hi2";
@@ -22,7 +21,7 @@ const CarBuyOpportunity = () => {
                         </div>
                         <div>
                             <h4 className='text-xl font-bold text-white'>Certified Vehicles That Look and Feel New</h4>
-                            <p>Each vehicle is detailed and washed to guarantee that you feel like the first owner.</p>
+                            <p className="text-white">Each vehicle is detailed and washed to guarantee that you feel like the first owner.</p>
                         </div>
                     </div>
                     <div className='flex'>
@@ -31,7 +30,7 @@ const CarBuyOpportunity = () => {
                         </div>
                         <div>
                             <h4 className='text-xl font-bold text-white'>We Start With Our Best Price</h4>
-                            <p>Our internet price is posted at or below market level, and we post a NADA price on our windows so you can compare.</p>
+                            <p className="text-white">Our internet price is posted at or below market level, and we post a NADA price on our windows so you can compare.</p>
                         </div>
                     </div>
                     <div className='flex'>
@@ -40,7 +39,7 @@ const CarBuyOpportunity = () => {
                         </div>
                         <div>
                             <h4 className='text-xl font-bold text-white'>Free Autocheck Vehicle History Report</h4>
-                            <p>We fully disclose the histories of our vehicles, including accident history, service records, number of prior owners, and more.</p>
+                            <p className="text-white">We fully disclose the histories of our vehicles, including accident history, service records, number of prior owners, and more.</p>
                         </div>
                     </div>
                     <div className='flex'>
@@ -50,7 +49,7 @@ const CarBuyOpportunity = () => {
                         <div>
                             <h4 className='text-xl font-bold text-white'>
                                 3-Month or 3,000 Miles Limited Warranty</h4>
-                            <p>Every Car Leader Certified vehicle comes with a 3 month / 3,000 mile Limited Warranty included in the purchase price.</p>
+                            <p className="text-white">Every Car Leader Certified vehicle comes with a 3 month / 3,000 mile Limited Warranty included in the purchase price.</p>
                         </div>
                     </div>
                 </div>

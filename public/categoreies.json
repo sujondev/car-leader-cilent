@@ -1,0 +1,22 @@
+[
+    {
+        "_id": 1,
+        "name": "BMW",
+        "img": "https://i.ibb.co/8zZg4nH/brand1.png"
+    },
+    {
+        "_id": 2,
+        "name": "SERETTA",
+        "img": "https://i.ibb.co/WWL7vGV/brand2.png"
+    },
+    {
+        "_id": 3,
+        "name": "AUSTER",
+        "img": "https://i.ibb.co/92t31nL/brand3.png"
+    },
+    {
+        "_id": 4,
+        "name": "TESSLA",
+        "img": "https://i.ibb.co/DgKM9Zf/brand4.png"
+    }
+]
