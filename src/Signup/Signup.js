@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { Authcontext } from '../context/Authprovider';
 
 const Signup = () => {
+    const [signupError, setSignupError] = useState(null)
+    const { createuser } = useContext(Authcontext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const handleSignup = data => {
-        console.log(data);
+        const { name, email, password, option } = data;
+        createuser(email, password)
+            .then(result => {
+                setSignupError(null)
+                const user = result.user;
+                toast.success('successfully signup')
+                console.log(user);
+            })
+            .catch(error => setSignupError(error.message))
     }
     return (
         <div className='h-[600px] flex justify-center items-center'>
@@ -36,7 +48,7 @@ const Signup = () => {
                     </div>
                     <input className='btn btn-primary w-full mt-5' value="Signup" type="submit" />
                     <div>
-                        {/* {loginError && <p className="text-red-600">{loginError}</p>} */}
+                        {signupError && <p className="text-red-600">{signupError}</p>}
                     </div>
                 </form>
                 <p className='mt-5'>Already have An account? <Link className='text-primary' to="/login">login</Link> </p>

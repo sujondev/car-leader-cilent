@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { Authcontext } from '../../context/Authprovider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const [loginError, setLoginError] = useState('')
+    const { signIn } = useContext(Authcontext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+
     const handleLogin = (data) => {
-        console.log(data);
+        const { email, password } = data;
+        signIn(email, password)
+            .then(result => {
+                setLoginError('')
+                const user = result.user;
+                toast.success('successfully Login')
+                console.log(user);
+            })
+            .catch(errors => setLoginError(errors.message))
     }
     return (
         <div className='h-[600px] flex justify-center items-center'>
@@ -25,7 +38,7 @@ const Login = () => {
                     </div>
                     <input className='btn btn-primary w-full mt-5' value="Login" type="submit" />
                     <div>
-                        {/* {loginError && <p className="text-red-600">{loginError}</p>} */}
+                        {loginError && <p className="text-red-600">{loginError}</p>}
                     </div>
                 </form>
                 <div className="divider">OR</div>
