@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { Authcontext } from '../../../context/Authprovider';
 
 const Navbar = () => {
-    const { user, signOut } = useContext(Authcontext)
+    const { user, logout } = useContext(Authcontext)
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         {
-            user ? <button>Logout</button>
+            user ? <button className='btn btn-primary ml-5' onClick={logout}>Logout</button>
                 :
                 <li><Link to='/login'>Login</Link></li>
         }

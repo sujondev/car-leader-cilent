@@ -4,11 +4,22 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { Authcontext } from '../../context/Authprovider';
 import toast from 'react-hot-toast';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [loginError, setLoginError] = useState('')
-    const { signIn } = useContext(Authcontext)
+    const { signIn, googleSignIn } = useContext(Authcontext)
+    const provider = new GoogleAuthProvider()
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(provider)
+            .then(result => {
+                const user = result.user;
+                toast.success("googleSignIn Successfully")
+                console.log(user);
+            })
+    }
 
     const handleLogin = (data) => {
         const { email, password } = data;
@@ -19,7 +30,7 @@ const Login = () => {
                 toast.success('successfully Login')
                 console.log(user);
             })
-            .catch(errors => setLoginError(errors.message))
+            .catch(errors => setLoginError(errors.message));
     }
     return (
         <div className='h-[600px] flex justify-center items-center'>
@@ -42,7 +53,7 @@ const Login = () => {
                     </div>
                 </form>
                 <div className="divider">OR</div>
-                <button className='btn w-full btn-ghost'><FcGoogle className='text-3xl mr-5'></FcGoogle> CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleSignIn} className='btn w-full btn-ghost'><FcGoogle className='text-3xl mr-5'></FcGoogle> CONTINUE WITH GOOGLE</button>
                 <p>New to CarLeader? <Link className='text-primary' to="/signup">Create new account</Link> </p>
             </div>
         </div >
