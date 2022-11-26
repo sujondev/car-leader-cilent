@@ -6,7 +6,7 @@ import { Authcontext } from '../context/Authprovider';
 
 const Signup = () => {
     const [signupError, setSignupError] = useState(null)
-    const { createuser } = useContext(Authcontext)
+    const { createuser, userUpdateProfile } = useContext(Authcontext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const handleSignup = data => {
         const { name, email, password, option } = data;
@@ -14,6 +14,10 @@ const Signup = () => {
             .then(result => {
                 setSignupError(null)
                 const user = result.user;
+                const profile = {
+                    displayName: name
+                }
+                userUpdateProfile(profile)
                 toast.success('successfully signup')
                 console.log(user);
             })
