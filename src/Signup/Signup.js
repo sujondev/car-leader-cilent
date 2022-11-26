@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../context/Authprovider';
 
 const Signup = () => {
     const [signupError, setSignupError] = useState(null)
     const { createuser, userUpdateProfile } = useContext(Authcontext)
+    const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const handleSignup = data => {
         const { name, email, password, option } = data;
@@ -18,11 +19,35 @@ const Signup = () => {
                     displayName: name
                 }
                 userUpdateProfile(profile)
-                toast.success('successfully signup')
+                saveUser(name, email, option)
                 console.log(user);
             })
             .catch(error => setSignupError(error.message))
     }
+
+    const saveUser = (name, email, option) => {
+        const users = {
+            name,
+            email,
+            role: option
+        }
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(users)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('successfully signup')
+                    navigate('/')
+                }
+            })
+    }
+
     return (
         <div className='h-[600px] flex justify-center items-center'>
             <div className='w-96 p-7 shadow-md'>
