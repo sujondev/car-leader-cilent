@@ -1,6 +1,5 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import Resellcar from '../Resellcar';
+import Resellcar from './Resellcar';
 
 const Resellcars = () => {
     const ResellCars = useLoaderData()

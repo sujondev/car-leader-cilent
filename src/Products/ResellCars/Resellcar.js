@@ -1,7 +1,6 @@
-import React from 'react';
+import BookingModal from './BookingModal/BookingModal';
 
 const Resellcar = ({ resellCar }) => {
-    console.log(resellCar);
     const { name, img, location, orginalPrice, resellPrice, yearofusing, conditon, description } = resellCar;
     return (
         <div>
@@ -16,10 +15,11 @@ const Resellcar = ({ resellCar }) => {
                     <p className='text-primary text-semibold'>Yearofusing: {yearofusing}month</p>
                     <p className='text-primary text-semibold'>Conditon: {conditon}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <label htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                     </div>
                 </div>
             </div>
+            <BookingModal resellCar={resellCar}></BookingModal>
         </div>
     );
 };

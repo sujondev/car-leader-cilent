@@ -18,9 +18,9 @@ const Categoreies = () => {
             </div>
             <div className='flex justify-center gap-20'>
                 {
-                    categoreies.map(categorey => <>
+                    categoreies.map(categorey =>
                         <Link key={categorey._id} to={`/categorey/${categorey._id}`}><Categorey categorey={categorey}></Categorey></Link>
-                    </>)
+                    )
                 }
             </div>
         </div>
