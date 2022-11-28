@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { Authcontext } from '../context/Authprovider';
+import useAdmin from '../hooks/useAdmin';
+import useSeller from '../hooks/useSeller';
 import Navbar from '../pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
+    const { user } = useContext(Authcontext)
+    const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = useSeller(user?.email)
+    console.log(isAdmin, isSeller);
     return (
         <div>
             <Navbar></Navbar>
@@ -15,13 +22,19 @@ const DashboardLayout = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li><Link to="/dashboard">My Order</Link></li>
-                        <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
-                        <li><Link to='/dashboard/myproduct'>My Product</Link></li>
+                        {isAdmin &&
+                            <li><Link to="/dashboard/allseller">All Seller</Link></li>}
+                        {
+                            isSeller && <>
+                                <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
+                                <li><Link to='/dashboard/myproduct'>My Product</Link></li>
+                            </>
+                        }
                     </ul>
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

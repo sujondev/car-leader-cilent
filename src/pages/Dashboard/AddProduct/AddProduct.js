@@ -64,8 +64,8 @@ const AddProduct = () => {
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">YearOfUsing</span></label>
-                            <input type="text" {...register("yeaofusing", { required: "YearOfUsing is required" })} className="input input-bordered w-full max-w-xs" />
-                            {errors.yeaofusing && <p className="text-red-600">{errors.yeaofusing?.message}</p>}
+                            <input type="text" {...register("yearofusing", { required: "YearOfUsing is required" })} className="input input-bordered w-full max-w-xs" />
+                            {errors.yearofusing && <p className="text-red-600">{errors.yearofusing?.message}</p>}
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">conditon</span></label>
@@ -89,11 +89,11 @@ const AddProduct = () => {
                         </div>
 
                         <div className="form-control w-full max-w-xs mt-5">
-                            <select {...register('option')} className="select select-bordered w-full max-w-xs">
-                                <option value='BMW'>BMW</option>
-                                <option value="AUSTER">AUSTER</option>
-                                <option value="SERETTA">SERETTA</option>
-                                <option value="TESSLA">TESSLA</option>
+                            <select {...register('categoreyId')} className="select select-bordered w-full max-w-xs">
+                                <option value='6380fdf1f8eac56e8f4430ff'>BMW</option>
+                                <option value="6380fdf1f8eac56e8f4430fd">AUSTER</option>
+                                <option value="6380fdf1f8eac56e8f4430fe">SERETTA</option>
+                                <option value="6380fdf1f8eac56e8f443100">TESSLA</option>
                             </select>
                         </div>
                         <input className='btn btn-primary w-full mt-5' value="AddProudct" type="submit" />

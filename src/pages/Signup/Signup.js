@@ -1,20 +1,33 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../context/Authprovider';
 import useToken from '../../hooks/useToken';
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
     const [signupError, setSignupError] = useState(null)
-    const { createuser, userUpdateProfile } = useContext(Authcontext)
+    const { createuser, userUpdateProfile, googleSignIn } = useContext(Authcontext)
     const [createUserEmail, setCreateUserEmail] = useState("")
     const navigate = useNavigate()
     const [token] = useToken(createUserEmail)
+    const provider = new GoogleAuthProvider()
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     if (token) {
         navigate('/')
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(provider)
+            .then(result => {
+                const user = result.user;
+                toast.success("googleSignIn Successfully")
+                console.log(user);
+                saveUser(user.displayName, user.email, 'buyer')
+            })
     }
 
     const handleSignup = data => {
@@ -39,6 +52,8 @@ const Signup = () => {
             email,
             role: option
         }
+
+        console.log(users);
 
         fetch('http://localhost:5000/users', {
             method: 'POST',
@@ -87,6 +102,8 @@ const Signup = () => {
                         {signupError && <p className="text-red-600">{signupError}</p>}
                     </div>
                 </form>
+                <div className="divider">OR</div>
+                <button onClick={handleGoogleSignIn} className='btn w-full btn-ghost'><FcGoogle className='text-3xl mr-5'></FcGoogle> CONTINUE WITH GOOGLE</button>
                 <p className='mt-5'>Already have An account? <Link className='text-primary' to="/login">login</Link> </p>
             </div>
         </div >

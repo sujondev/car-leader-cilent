@@ -1,7 +1,7 @@
 import BookingModal from './BookingModal/BookingModal';
 
 const Resellcar = ({ resellCar }) => {
-    const { name, img, location, orginalPrice, resellPrice, yearofusing, conditon, description } = resellCar;
+    const { name, img, location, orginalPrice, resellPrice, yearofusing, conditon, description, sellerName } = resellCar;
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -14,6 +14,7 @@ const Resellcar = ({ resellCar }) => {
                     <p className='text-primary text-semibold'>ResellPrice: ${resellPrice}</p>
                     <p className='text-primary text-semibold'>Yearofusing: {yearofusing}month</p>
                     <p className='text-primary text-semibold'>Conditon: {conditon}</p>
+                    <p className='text-primary text-semibold'>SellerName: {sellerName}</p>
                     <div className="card-actions justify-end">
                         <label htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                     </div>

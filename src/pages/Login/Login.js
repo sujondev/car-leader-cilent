@@ -1,34 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FcGoogle } from "react-icons/fc";
 import { Authcontext } from '../../context/Authprovider';
 import toast from 'react-hot-toast';
-import { GoogleAuthProvider } from 'firebase/auth';
 import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [loginError, setLoginError] = useState('')
-    const { signIn, googleSignIn } = useContext(Authcontext)
+    const { signIn } = useContext(Authcontext)
     const [userloginEmail, setUserLoginEmail] = useState('')
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
     const [token] = useToken(userloginEmail)
-    const provider = new GoogleAuthProvider()
     const { register, handleSubmit, formState: { errors } } = useForm();
     if (token) {
         navigate(from, { replace: true })
-    }
-
-
-    const handleGoogleSignIn = () => {
-        googleSignIn(provider)
-            .then(result => {
-                const user = result.user;
-                toast.success("googleSignIn Successfully")
-                console.log(user);
-            })
     }
 
     const handleLogin = (data) => {
@@ -63,8 +50,6 @@ const Login = () => {
                         {loginError && <p className="text-red-600">{loginError}</p>}
                     </div>
                 </form>
-                <div className="divider">OR</div>
-                <button onClick={handleGoogleSignIn} className='btn w-full btn-ghost'><FcGoogle className='text-3xl mr-5'></FcGoogle> CONTINUE WITH GOOGLE</button>
                 <p>New to CarLeader? <Link className='text-primary' to="/signup">Create new account</Link> </p>
             </div>
         </div >
