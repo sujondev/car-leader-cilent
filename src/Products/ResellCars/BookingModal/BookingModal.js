@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../../context/Authprovider';
 
 const BookingModal = ({ resellCar }) => {
     const { name, resellPrice, _id, img } = resellCar;
     const { user } = useContext(Authcontext)
+    const navigate = useNavigate()
     const handleBooking = (event) => {
         event.preventDefault()
         const phoeneNumber = event.target.phone.value
@@ -31,6 +33,8 @@ const BookingModal = ({ resellCar }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     toast.success("booking complete")
+                    navigate('/dashboard')
+
 
                 }
             })
