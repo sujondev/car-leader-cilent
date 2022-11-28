@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/categorey/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/categorey/${params.id}`),
+                loader: ({ params }) => fetch(`https://car-leader-server-sujondev.vercel.app/categorey/${params.id}`),
                 element: <PrivateRoute>
                     <Resellcars></Resellcars>
                 </PrivateRoute>

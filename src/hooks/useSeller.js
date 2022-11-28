@@ -4,7 +4,7 @@ const useSeller = email => {
     const [isSeller, setisSeller] = useState('');
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/user/seller/${email}`, {
+            fetch(`https://car-leader-server-sujondev.vercel.app/user/seller/${email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }

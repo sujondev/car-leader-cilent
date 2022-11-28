@@ -68,3 +68,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### project details 
+
+1. react using 
+2. expres using 
+3. mongodb using 
+4. jwt apply
+5. firebase 
+
+
+### live site link 
+https://car-leader-6e313.web.app/
+
+### about websit 
+1. this resell car site 
+2. login and singup feature
+3. admin adding
+4. seller adding 
+5. buyer adding 
+6. categorey product adding

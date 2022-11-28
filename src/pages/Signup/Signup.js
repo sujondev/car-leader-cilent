@@ -55,7 +55,7 @@ const Signup = () => {
 
         console.log(users);
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://car-leader-server-sujondev.vercel.app/users', {
             method: 'POST',
             headers: {
                 "content-type": "application/json",

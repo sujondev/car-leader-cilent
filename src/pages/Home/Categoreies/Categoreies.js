@@ -7,7 +7,7 @@ const Categoreies = () => {
     const { data: categoreies, isLoading } = useQuery({
         queryKey: ['categorey'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categorey')
+            const res = await fetch('https://car-leader-server-sujondev.vercel.app/categorey')
             const data = await res.json()
             return data;
         }
