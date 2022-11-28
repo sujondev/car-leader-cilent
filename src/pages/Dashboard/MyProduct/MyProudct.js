@@ -1,25 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
+import { success } from 'daisyui/src/colors';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Authcontext } from '../../../context/Authprovider';
-import Loading from '../../Shared/Loading/Loading';
 
-const MyOrder = () => {
+const MyProudct = () => {
+
     const { user } = useContext(Authcontext)
-    const { data: bookings, isLoading } = useQuery({
-        queryKey: ['booking', user?.email],
+    const { data: myproducts, isLoading, refetch } = useQuery({
+        queryKey: ['myproduct', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/booking?email=${user?.email}`, {
-                headers: {
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
+            const res = await fetch(`http://localhost:5000/myproduct?email=${user.email}`)
             const data = await res.json()
-            return data
+            return data;
         }
     })
 
-    if (isLoading) {
-        return <Loading></Loading>
+
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/myproduct/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    toast.success('succesfully delete')
+                    refetch()
+                }
+            })
     }
 
     return (
@@ -32,28 +41,28 @@ const MyOrder = () => {
                             <th>img</th>
                             <th>Name</th>
                             <th>price</th>
-                            <th>Payment</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            bookings?.map(booking => <tr key={booking._id}>
+                            myproducts?.map(myproduct => <tr key={myproduct._id}>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src={booking?.img} alt="Avatar Tailwind CSS Component" />
+                                                <img src={myproduct?.img} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    {booking?.productName}
+                                    {myproduct?.name}
                                 </td>
-                                <td>${booking?.resellPrice}</td>
+                                <td>${myproduct.resellPrice}</td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">pay</button>
+                                    <button onClick={() => handleDelete(myproduct._id)} className="btn btn-ghost btn-xs">Delete</button>
                                 </th>
                             </tr>)
                         }
@@ -64,4 +73,4 @@ const MyOrder = () => {
     );
 };
 
-export default MyOrder;
+export default MyProudct;

@@ -2,13 +2,21 @@ import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { Authcontext } from '../context/Authprovider';
+import { Authcontext } from '../../context/Authprovider';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const [signupError, setSignupError] = useState(null)
     const { createuser, userUpdateProfile } = useContext(Authcontext)
+    const [createUserEmail, setCreateUserEmail] = useState("")
     const navigate = useNavigate()
+    const [token] = useToken(createUserEmail)
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    if (token) {
+        navigate('/')
+    }
+
     const handleSignup = data => {
         const { name, email, password, option } = data;
         createuser(email, password)
@@ -35,7 +43,7 @@ const Signup = () => {
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
             },
             body: JSON.stringify(users)
         })
@@ -43,23 +51,10 @@ const Signup = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('successfully signup')
-                    getToken(email)
+                    setCreateUserEmail(email)
                 }
             })
     }
-
-    const getToken = (email) => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.accessToken) {
-                    localStorage.setItem('accessToken', data.accessToken)
-                    navigate('/')
-                }
-            })
-    }
-
     return (
         <div className='h-[600px] flex justify-center items-center'>
             <div className='w-96 p-7 shadow-md'>

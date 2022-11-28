@@ -1,15 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import { Authcontext } from '../../../context/Authprovider';
+import Loading from '../../Shared/Loading/Loading';
 import Categorey from './Categorey';
 
 const Categoreies = () => {
-    const [categoreies, setCategories] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/categorey')
-            .then(res => res.json())
-            .then(data => setCategories(data))
-    }, [])
+    const { data: categoreies, isLoading } = useQuery({
+        queryKey: ['categorey'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/categorey')
+            const data = await res.json()
+            return data;
+        }
+    })
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div className='mb-20'>
             <div className='text-center m-10'>
@@ -18,7 +24,7 @@ const Categoreies = () => {
             </div>
             <div className='flex justify-center gap-20'>
                 {
-                    categoreies.map(categorey =>
+                    categoreies?.map(categorey =>
                         <Link key={categorey._id} to={`/categorey/${categorey._id}`}><Categorey categorey={categorey}></Categorey></Link>
                     )
                 }
