@@ -26,7 +26,7 @@ const Signup = () => {
                 const user = result.user;
                 toast.success("googleSignIn Successfully")
                 console.log(user);
-                saveUser(user.displayName, user.email, 'buyer')
+                saveUser(user.displayName, user.email, 'Buyer')
             })
     }
 

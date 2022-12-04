@@ -13,6 +13,9 @@ const AddProduct = () => {
     });
     const navigate = useNavigate()
     const handleAddProudct = data => {
+
+        console.log(data);
+
         fetch('https://car-leader-server-sujondev.vercel.app/product', {
             method: 'POST',
             headers: {

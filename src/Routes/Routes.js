@@ -7,8 +7,10 @@ import AllBuyer from "../pages/Dashboard/AllBuyer/AllBuyer";
 import AllSeller from "../pages/Dashboard/Allseller/AllSeller";
 import MyOrder from "../pages/Dashboard/MyOrder/MyOrder";
 import MyProudct from "../pages/Dashboard/MyProduct/MyProudct";
+import Payment from "../pages/Dashboard/Payment/Payment";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
+import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import Signup from "../pages/Signup/Signup";
 import Resellcars from "../Products/ResellCars/Resellcars";
 import AdminRoute from "./AdminRoute/AdminRoute";
@@ -19,10 +21,11 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
             },
             {
                 path: '/login',
@@ -51,10 +54,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard',
-                element: <MyOrder></MyOrder>
+                element: <MyOrder></MyOrder>,
             },
             {
                 path: '/dashboard/addproduct',
@@ -75,6 +79,10 @@ const router = createBrowserRouter([
                 element: <AdminRoute>
                     <AllBuyer></AllBuyer>
                 </AdminRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>
             }
         ]
     }

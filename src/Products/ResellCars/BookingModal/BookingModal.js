@@ -7,6 +7,7 @@ const BookingModal = ({ resellCar }) => {
     const { name, resellPrice, _id, img } = resellCar;
     const { user } = useContext(Authcontext)
     const navigate = useNavigate()
+
     const handleBooking = (event) => {
         event.preventDefault()
         const phoeneNumber = event.target.phone.value

@@ -12,6 +12,21 @@ const AllSeller = () => {
         }
     })
 
+
+    const handleverify = (email) => {
+        fetch(`https://car-leader-server-sujondev.vercel.app/verfiyseller?email=${email}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('seller is verify')
+                    refetch()
+                }
+            })
+    }
+
+
     const handleDelete = (id) => {
         console.log(id);
         fetch(`https://car-leader-server-sujondev.vercel.app/seller/${id}`, {
@@ -47,7 +62,9 @@ const AllSeller = () => {
                                 <th>{i + 1}</th>
                                 <td>{allseller.name}</td>
                                 <td>{allseller.email}</td>
-                                <td><button className='btn btn-xs'>verify</button></td>
+                                {allseller.isverify ? <td><button onClick={() => handleverify(allseller._id)} className='btn btn-xs' disabled>verified</button></td>
+                                    :
+                                    <td><button onClick={() => handleverify(allseller.email)} className='btn btn-xs'>verify</button></td>}
                                 <td><button onClick={() => handleDelete(allseller._id)} className='btn btn-xs'>Delete</button></td>
                             </tr>)
                         }

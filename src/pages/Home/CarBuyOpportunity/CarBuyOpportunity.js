@@ -7,16 +7,16 @@ import { HiTag } from "react-icons/hi2";
 const CarBuyOpportunity = () => {
     return (
         <div>
-            <div className="bg-img mt-5 h-[480px]" style={{ backgroundImage: `url(${bgimg1})` }}>
+            <div className="bg-img mt-5 overflow-hidden" style={{ backgroundImage: `url(${bgimg1})`, backgroundSize: 'cover' }}>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="mt-10">
                         <h1 className="mb-5 text-3xl font-bold text-white">Reasons to Buy From Car Leader</h1>
                         <p className="mb-5 text-primary font-bold">WE'RE HERE FOR WHATEVER YOU NEED</p>
                     </div>
                 </div>
-                <div className='grid grid-cols-2 gap-y-6 p-10'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-y-4 p-10'>
                     <div className='flex'>
-                        <div className=' bg-primary text-white p-3 rounded-full mr-5'>
+                        <div className='bg-primary text-white p-3 rounded-full mr-5 mb-[80px]'>
                             <FaCar className='text-5xl'></FaCar>
                         </div>
                         <div>
@@ -25,7 +25,7 @@ const CarBuyOpportunity = () => {
                         </div>
                     </div>
                     <div className='flex'>
-                        <div className=' bg-primary text-white p-3 rounded-full mr-5'>
+                        <div className=' bg-primary text-white p-3 rounded-full mr-5 mb-[80px]'>
                             <HiTag className='text-5xl'></HiTag>
                         </div>
                         <div>
@@ -34,7 +34,7 @@ const CarBuyOpportunity = () => {
                         </div>
                     </div>
                     <div className='flex'>
-                        <div className=' bg-primary text-white p-3 rounded-full mr-5'>
+                        <div className='bg-primary text-white p-3 rounded-full mr-5 mb-[80px]'>
                             <FaCarSide className='text-5xl'></FaCarSide>
                         </div>
                         <div>
@@ -43,7 +43,7 @@ const CarBuyOpportunity = () => {
                         </div>
                     </div>
                     <div className='flex'>
-                        <div className='bg-primary text-white p-3 rounded-full mr-5'>
+                        <div className='bg-primary text-white p-3 rounded-full mr-5 mb-[80px]'>
                             <FaAward className='text-5xl'></FaAward>
                         </div>
                         <div>

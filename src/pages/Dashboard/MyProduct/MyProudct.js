@@ -37,7 +37,7 @@ const MyProudct = () => {
 
     return (
         <div className='m-10'>
-            <h2 className="text-3xl mb-5">My Order</h2>
+            <h2 className="text-3xl mb-5">My Product</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useAdmin = email => {
-    const [isAdmin, setisAdmin] = useState('');
+    const [isAdmin, setisAdmin] = useState(false);
     const [isAdminLoading, setisAdminLoading] = useState(true)
     useEffect(() => {
         if (email) {
@@ -12,10 +12,8 @@ const useAdmin = email => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.isAdmin) {
-                        setisAdmin(data.isAdmin)
-                        setisAdminLoading(false)
-                    }
+                    setisAdmin(data.isAdmin)
+                    setisAdminLoading(false)
                 });
         }
     }, [email]);
