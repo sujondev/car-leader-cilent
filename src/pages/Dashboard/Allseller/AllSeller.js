@@ -19,7 +19,10 @@ const AllSeller = () => {
 
     const handleverify = (email) => {
         fetch(`https://car-leader-server-sujondev.vercel.app/verfiyseller?email=${email}`, {
-            method: 'PUT'
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -32,9 +35,11 @@ const AllSeller = () => {
 
 
     const handleDelete = (id) => {
-        console.log(id);
         fetch(`https://car-leader-server-sujondev.vercel.app/seller/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
