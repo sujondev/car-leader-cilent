@@ -6,7 +6,11 @@ const AllBuyer = () => {
     const { data: AllBuyer, refetch } = useQuery({
         queryKey: ['allseller', 'role=Seller'],
         queryFn: async () => {
-            const res = await fetch(`https://car-leader-server-sujondev.vercel.app/allseller?role=Buyer`)
+            const res = await fetch(`https://car-leader-server-sujondev.vercel.app/allseller?role=Buyer`, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json()
             return data;
         }
