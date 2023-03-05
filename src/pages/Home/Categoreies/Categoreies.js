@@ -22,7 +22,7 @@ const Categoreies = () => {
                 <h3 className='text-4xl font-bold'>Categorey By Car</h3>
                 <p className='xl text-primary font-semibold mt-5'>WE WORK WITH BRANDS</p>
             </div>
-            <div className='flex justify-center gap-20'>
+            <div className='grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 w-1/2 mx-auto'>
                 {
                     categoreies?.map(categorey =>
                         <Link key={categorey._id} to={`/categorey/${categorey._id}`}><Categorey categorey={categorey}></Categorey></Link>
