@@ -7,13 +7,15 @@ const CustomerService = () => {
         setIsVisible(!isVisible);
     };
     return (
-        <div className="mt-10 w-1/2 mx-auto">
-            <button
-                onClick={handleToggle}
-                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full animate__animated animate__bounce mx-64`}
-            >
-                Contact Us
-            </button>
+        <div className="">
+            <div className='w-full flex justify-center mt-10'>
+                <button
+                    onClick={handleToggle}
+                    className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full animate__animated animate__bounce`}
+                >
+                    Contact Us
+                </button>
+            </div>
             <div
                 className={`${isVisible ? 'block' : 'hidden'}`}
             >
